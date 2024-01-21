@@ -1,18 +1,18 @@
 import nodemailer from "nodemailer";
-
+var smtpTransport = require("nodemailer-smtp-transport");
 
 
 export async function SentEmail(EmailTo, EmailText, EmailSubject) {
- let Transport= nodemailer.createTransport({
-        host:"mail.teamrabbil.com",
-        port:25,
-        secure:false,
-        auth:{user:"info@teamrabbil.com", pass:"~sR4[bhaC[Qs"},
+ let Transport= nodemailer.createTransport(smtpTransport({
+        host:"s1.bitsboxhost.com",
+        port:465,
+        secure:true,
+        auth:{user:"demo@buildawebsiteeasily.com", pass:"000***000"},
         tls:{rejectUnauthorized:false}
-    })
+    }))
 
   let MailOption = {
-    from: "Next js news portal<info@teamrabbil.com>",
+    from: "Next js news portal<demo@buildawebsiteeasily.com>",
     to: EmailTo,
     subject: EmailSubject,
     text: EmailText,
